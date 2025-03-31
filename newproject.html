@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zameer's Tech Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Orbitron', sans-serif;
+        }
+        body {
+            background: #0a0a1a;
+            color: #00fffc;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        .grid-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                linear-gradient(transparent 95%, rgba(0, 255, 255, 0.1) 95%),
+                linear-gradient(90deg, transparent 95%, rgba(0, 255, 255, 0.1) 95%);
+            background-size: 30px 30px;
+            pointer-events: none;
+            z-index: 0;
+            animation: gridScan 20s linear infinite;
+        }
+        @keyframes gridScan {
+            0% { background-position: 0 0; }
+            100% { background-position: 100% 0; }
+        }
+        header {
+            text-align: center;
+            padding: 5rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        header::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 300%;
+            height: 300%;
+            background: radial-gradient(circle, rgba(0,255,255,0.1) 0%, transparent 70%);
+            transform: translate(-50%, -50%);
+            z-index: -1;
+        }
+        header h1 {
+            font-size: 3.5rem;
+            color: #ffffff;
+            text-shadow: 0 0 20px #ffffff;
+            margin-bottom: 1rem;
+            animation: textGlow 2s ease-in-out infinite alternate;
+        }
+        header p {
+            font-size: 1.5rem;
+            color: #8ff;
+            letter-spacing: 2px;
+        }
+        .projects-container {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+        .project-card {
+            background: rgba(0, 32, 32, 0.8);
+            border: 2px solid #00fffc;
+            border-radius: 10px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.3);
+        }
+        .project-card h2 {
+            color: #00fffc;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        .project-card p {
+            color: #c0c0ff;
+            margin-bottom: 1.5rem;
+        }
+        .tech-tag {
+            display: inline-block;
+            background: rgba(0, 255, 255, 0.15);
+            color: #00fffc;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            margin-right: 0.5rem;
+            border: 1px solid #00fffc;
+        }
+        .project-viewer {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+        .viewer-content {
+            background: rgba(0, 20, 20, 0.95);
+            border: 2px solid #00f9fc;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 1000px;
+            max-height: 90vh;
+            padding: 2rem;
+            position: relative;
+            box-shadow: 0 0 50px rgba(0, 255, 255, 0.2);
+            animation: modalOpen 0.5s ease-out;
+        }
+        @keyframes modalOpen {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+        .close-btn {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            color: #00fffc;
+            font-size: 2rem;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .close-btn:hover {
+            color: #f00;
+            transform: rotate(90deg);
+        }
+        .project-frame {
+            width: 100%;
+            height: 70vh;
+            border: 2px solid #00fffc;
+            border-radius: 5px;
+            margin-top: 1.5rem;
+            background: #000;
+        }
+        @keyframes textGlow {
+            from { text-shadow: 0 0 10px #00fffc; }
+            to { text-shadow: 0 0 20px #00fffc, 0 0 30px #00fffc; }
+        }
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: #8ff;
+            position: relative;
+            z-index: 1;
+        }
+        @media (max-width: 768px) {
+            header h1 { font-size: 2.5rem; }
+            .projects-container { grid-template-columns: 1fr; }
+            .project-viewer { padding: 10px; }
+            .project-frame { height: 50vh; }
+        }
+    </style>
+</head>
+<body>
+    <div class="grid-overlay"></div>
+
+    <header>
+        <h1>SHAIK ZAMEER AHMED</h1>
+        <p>23BRS1138 | Cybernetic Solutions Architect</p>
+    </header>
+
+    <div class="projects-container">
+        <div class="project-card" data-project-id="waste">
+            <h2>AI Waste Management</h2>
+            <p>Smart sorting system that reduces collection costs using AI route optimization.</p>
+            <span class="tech-tag">AI</span>
+            <span class="tech-tag">IoT</span>
+            <span class="tech-tag">Node.js</span>
+        </div>
+
+        <div class="project-card" data-project-id="voting">
+            <h2>Blockchain Voting</h2>
+            <p>Tamper-proof election system with Ethereum smart contracts for transparent results.</p>
+            <span class="tech-tag">Blockchain</span>
+            <span class="tech-tag">Solidity</span>
+            <span class="tech-tag">Web3</span>
+        </div>
+
+        <div class="project-card" data-project-id="mental">
+            <h2>Mental Health Chatbot</h2>
+            <p>24/7 AI therapist with NLP for personalized emotional support.</p>
+            <span class="tech-tag">NLP</span>
+            <span class="tech-tag">GPT-4</span>
+            <span class="tech-tag">Psychology</span>
+        </div>
+
+        <div class="project-card" data-project-id="solar">
+            <h2>Solar Optimizer</h2>
+            <p>Increases panel efficiency by 25% through machine learning adjustments.</p>
+            <span class="tech-tag">ML</span>
+            <span class="tech-tag">Energy</span>
+            <span class="tech-tag">Python</span>
+        </div>
+
+        <div class="project-card" data-project-id="traffic">
+            <h2>Smart Traffic Control</h2>
+            <p>Reduces congestion using real-time AI signal optimization.</p>
+            <span class="tech-tag">Computer Vision</span>
+            <span class="tech-tag">IoT</span>
+            <span class="tech-tag">AI</span>
+        </div>
+    </div>
+
+    <div class="project-viewer" id="projectViewer">
+        <div class="viewer-content">
+            <button class="close-btn" id="closeBtn">×</button>
+            <h2 id="viewerTitle">Project Title</h2>
+            <p id="viewerDesc">Project description</p>
+            <iframe class="project-frame" id="projectFrame" sandbox="allow-scripts allow-same-origin"></iframe>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2023 Shaik Zameer Ahmed | All prototypes are functional proofs-of-concept</p>
+    </footer>
+
+    <script>
+        // Immediately-invoked function expression to encapsulate all JS
+        (function() {
+            const projects = {
+                waste: {
+                    title: "AI-Powered Waste Management System",
+                    desc: "Smart waste sorting with real-time monitoring and route optimization for garbage trucks.",
+                    html: '<!DOCTYPE html><html><head><style>body{font-family:Arial;background:#f4f4f9;margin:0;padding:20px}.dashboard{display:flex;flex-wrap:wrap;gap:20px;padding:20px}.bin{background:#fff;border-radius:10px;padding:15px;box-shadow:0 4px 6px rgba(0,0,0,0.1);width:200px;text-align:center}.bin.full{background:#ff6b6b;color:#fff}.bin.medium{background:#ffd166}.bin.empty{background:#06d6a0;color:#fff}</style></head><body><h2>Smart Waste Management Dashboard</h2><div class="dashboard"><div class="bin empty" id="bin1"><h3>Bin 1</h3><p>Status: Empty</p><p>Location: Downtown</p></div><div class="bin medium" id="bin2"><h3>Bin 2</h3><p>Status: Medium</p><p>Location: Park</p></div><div class="bin full" id="bin3"><h3>Bin 3</h3><p>Status: Full</p><p>Location: Mall</p></div></div><script>setInterval(()=>{document.querySelectorAll(".bin").forEach(bin=>{const e=Math.random();bin.classList.remove("empty","medium","full"),e<.3?bin.classList.add("empty"):e<.7?bin.classList.add("medium"):bin.classList.add("full")})},3e3);</script></body></html>'
+                },
+                voting: {
+                    title: "Blockchain Voting System",
+                    desc: "Decentralized voting platform that prevents tampering using Ethereum smart contracts.",
+                    html: '<!DOCTYPE html><html><head><style>body{font-family:Arial;background:#f0f2f5;margin:0;padding:20px}.container{max-width:800px;margin:0 auto;background:#fff;padding:20px;border-radius:10px;box-shadow:0 4px 6px rgba(0,0,0,0.1)}h1{color:#333;text-align:center}.candidate{display:flex;align-items:center;margin:15px 0;padding:10px;border:1px solid #ddd;border-radius:5px;cursor:pointer;transition:background .3s}.candidate:hover{background:#f9f9f9}.candidate img{width:60px;height:60px;border-radius:50%;margin-right:15px}button{background:#4CAF50;color:#fff;border:none;padding:10px 20px;border-radius:5px;cursor:pointer;font-size:16px;margin-top:20px}button:hover{background:#45a049}</style></head><body><div class="container"><h1>Decentralized Voting System</h1><div id="candidates"><div class="candidate" onclick="selectCandidate(1)"><img src="https://via.placeholder.com/60" alt="Candidate 1"><div><h3>Candidate A</h3><p>Party: Independent</p></div></div><div class="candidate" onclick="selectCandidate(2)"><img src="https://via.placeholder.com/60" alt="Candidate 2"><div><h3>Candidate B</h3><p>Party: Reform</p></div></div></div><button onclick="submitVote()">Submit Vote (Blockchain)</button><p id="status"></p></div><script>let selectedCandidate=null;function selectCandidate(e){selectedCandidate=e,document.querySelectorAll(".candidate").forEach(e=>{e.style.background="white"}),event.currentTarget.style.background="#e3f2fd"}function submitVote(){selectedCandidate?document.getElementById("status").textContent="Vote recorded on blockchain! Transaction Hash: 0x7f3a...c42d":document.getElementById("status").textContent="Please select a candidate!"}</script></body></html>'
+                },
+                mental: {
+                    title: "AI Mental Health Chatbot",
+                    desc: "Natural language processing chatbot providing emotional support and therapy suggestions.",
+                    html: '<!DOCTYPE html><html><head><style>body{font-family:Arial;background:#e8f4f8;margin:0;padding:20px}.chat-container{max-width:500px;margin:0 auto;background:#fff;border-radius:10px;box-shadow:0 4px 6px rgba(0,0,0,0.1);overflow:hidden}.chat-header{background:#4b6cb7;color:#fff;padding:15px;text-align:center}.chat-messages{height:300px;padding:15px;overflow-y:auto}.message{margin-bottom:10px;padding:8px 12px;border-radius:18px;max-width:70%}.user-message{background:#e3f2fd;margin-left:auto;border-bottom-right-radius:5px}.bot-message{background:#f1f1f1;margin-right:auto;border-bottom-left-radius:5px}.chat-input{display:flex;padding:10px;border-top:1px solid #ddd}#user-input{flex:1;padding:10px;border:1px solid #ddd;border-radius:20px;outline:none}#send-button{background:#4b6cb7;color:#fff;border:none;padding:10px 15px;border-radius:20px;margin-left:10px;cursor:pointer}</style></head><body><div class="chat-container"><div class="chat-header"><h2>Mental Health Support Chatbot</h2></div><div class="chat-messages" id="chat-messages"><div class="message bot-message">Hi! I\'m your mental health assistant. How are you feeling today?</div></div><div class="chat-input"><input type="text" id="user-input" placeholder="Type your message..."><button id="send-button">Send</button></div></div><script>const e=document.getElementById("chat-messages"),t=document.getElementById("user-input"),n=document.getElementById("send-button");function o(){const n=t.value.trim();if(!n)return;const o=document.createElement("div");o.classList.add("message","user-message"),o.textContent=n,e.appendChild(o),t.value="",setTimeout(()=>{const t=document.createElement("div");t.classList.add("message","bot-message");const n=["I understand. Can you tell me more?","That sounds tough. Have you tried mindfulness exercises?","You\'re not alone. Would you like some resources?"];t.textContent=n[Math.floor(3*Math.random())],e.appendChild(t),e.scrollTop=e.scrollHeight},1e3)}n.addEventListener("click",o),t.addEventListener("keypress",e=>{"Enter"===e.key&&o()});</script></body></html>'
+                },
+                solar: {
+                    title: "Solar Energy Optimization Dashboard",
+                    desc: "AI-driven solar panel optimization with real-time analytics and predictive maintenance.",
+                    html: '<!DOCTYPE html><html><head><style>body{font-family:\'Segoe UI\',Tahoma,Geneva,Verdana,sans-serif;background:#f5f7fa;margin:0;padding:20px;color:#333}.dashboard{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:1200px;margin:0 auto}.card{background:#fff;border-radius:10px;padding:20px;box-shadow:0 4px 6px rgba(0,0,0,0.1)}.card-header{font-size:1.2em;font-weight:700;margin-bottom:15px;color:#4a6baf}#energy-chart{height:200px;width:100%}.gauge{width:100%;height:150px;position:relative}.alert{color:#e74c3c;font-weight:700}.optimal{color:#2ecc71}</style><script src="https://cdn.jsdelivr.net/npm/chart.js"></script></head><body><h2 style="text-align:center">Solar Energy Optimization Dashboard</h2><div class="dashboard"><div class="card"><div class="card-header">Energy Production (kW)</div><canvas id="energy-chart"></canvas></div><div class="card"><div class="card-header">Panel Efficiency</div><div class="gauge"><canvas id="efficiency-gauge"></canvas><p id="efficiency-text" class="optimal">87% (Optimal)</p></div></div><div class="card"><div class="card-header">Maintenance Alerts</div><ul id="alerts"><li>Panel #3: Dust accumulation detected</li><li>Inverter #2: Efficiency drop (Check wiring)</li></ul></div></div><script>new Chart(document.getElementById("energy-chart").getContext("2d"),{type:"line",data:{labels:["6AM","9AM","12PM","3PM","6PM"],datasets:[{label:"Energy Output (kW)",data:[2.1,4.7,6.3,5.8,3.2],borderColor:"#4a6baf",tension:.3,fill:!0,backgroundColor:"rgba(74,107,175,0.1)"}]},options:{responsive:!0,plugins:{legend:{display:!1}}}}),new Chart(document.getElementById("efficiency-gauge").getContext("2d"),{type:"doughnut",data:{datasets:[{data:[87,13],backgroundColor:["#2ecc71","#f0f0f0"],borderWidth:0}]},options:{circumference:270,rotation:225,cutout:"80%",plugins:{legend:{display:!1}}}}),setInterval(()=>{const e=80+Math.floor(15*Math.random());document.getElementById("efficiency-text").textContent=`${e}% ${e>85?"(Optimal)":"(Needs Check)"}`,document.getElementById("efficiency-text").className=e>85?"optimal":"alert"},3e3);</script></body></html>'
+                },
+                traffic: {
+                    title: "Smart Traffic Management System",
+                    desc: "AI-powered traffic light control using real-time vehicle detection to reduce congestion.",
+                    html: '<!DOCTYPE html><html><head><style>body{font-family:Arial;background:#eaeaea;margin:0;padding:20px}.intersection{width:400px;height:300px;margin:20px auto;background:#333;position:relative;border-radius:10px;overflow:hidden}.road{position:absolute;background:#555}#road-horizontal{width:100%;height:60px;top:120px}#road-vertical{width:60px;height:100%;left:170px}.traffic-light{width:40px;height:100px;background:#222;position:absolute;border-radius:5px;display:flex;flex-direction:column;align-items:center;justify-content:space-around;padding:5px 0}#light-north{top:20px;left:180px}#light-south{bottom:20px;left:180px}#light-east{top:130px;right:20px}#light-west{top:130px;left:20px}.light{width:30px;height:30px;border-radius:50%;background:#444}.light.active-red{background:#ff3b30;box-shadow:0 0 15px #ff3b30}.light.active-yellow{background:#ffcc00;box-shadow:0 0 15px #ffcc00}.light.active-green{background:#34c759;box-shadow:0 0 15px #34c759}.car{width:30px;height:50px;background:#4a6baf;position:absolute;border-radius:5px;transition:all 1s linear}.stats{background:#fff;max-width:400px;margin:20px auto;padding:15px;border-radius:10px;box-shadow:0 4px 6px rgba(0,0,0,0.1)}</style></head><body><h2 style="text-align:center">AI Traffic Control System</h2><div class="intersection"><div class="road" id="road-horizontal"></div><div class="road" id="road-vertical"></div><div class="traffic-light" id="light-north"><div class="light active-red" id="north-red"></div><div class="light" id="north-yellow"></div><div class="light" id="north-green"></div></div><div class="traffic-light" id="light-south"><div class="light active-red" id="south-red"></div><div class="light" id="south-yellow"></div><div class="light" id="south-green"></div></div><div class="traffic-light" id="light-east"><div class="light" id="east-red"></div><div class="light" id="east-yellow"></div><div class="light active-green" id="east-green"></div></div><div class="traffic-light" id="light-west"><div class="light" id="west-red"></div><div class="light" id="west-yellow"></div><div class="light active-green" id="west-green"></div></div><div class="car" id="car1" style="top:50px;left:150px;"></div><div class="car" id="car2" style="top:200px;left:300px;"></div></div><div class="stats"><h3>Traffic Analytics</h3><p>Vehicle Count: <span id="vehicle-count">12</span> (Last 60 sec)</p><p>Avg. Wait Time: <span id="wait-time">25</span> sec (AI-Optimized)</p></div><script>function setLights(e,t){document.getElementById("east-red").classList.toggle("active-red",e),document.getElementById("west-red").classList.toggle("active-red",e),document.getElementById("east-green").classList.toggle("active-green",!e),document.getElementById("west-green").classList.toggle("active-green",!e),document.getElementById("north-red").classList.toggle("active-red",t),document.getElementById("south-red").classList.toggle("active-red",t),document.getElementById("north-green").classList.toggle("active-green",!t),document.getElementById("south-green").classList.toggle("active-green",!t)}let isHorizontalGreen=!0;setInterval(()=>{isHorizontalGreen=!isHorizontalGreen,setLights(isHorizontalGreen,!isHorizontalGreen),document.getElementById("vehicle-count").textContent=Math.floor(10+10*Math.random()),document.getElementById("wait-time").textContent=Math.floor(15+10*Math.random())},1e4),setInterval(()=>{const e=document.getElementById("car1"),t=document.getElementById("car2");isHorizontalGreen?(e.style.left="400px",t.style.left="0px"):(e.style.top="300px",t.style.top="0px"),setTimeout(()=>{e.style.left="150px",e.style.top="50px",t.style.left="300px",t.style.top="200px"},1e3)},11e3);</script></body></html>'
+                }
+            };
+
+           
+    </script>
+</body>
+</html>
