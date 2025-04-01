@@ -3,48 +3,173 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SHAIK ZAMEER AHMED 23BRS1138 Projects</title>
+    <title>SHAIK ZAMEER AHMED | Tech Portfolio</title>
     <style>
         :root {
-            --primary-color: #2c3e50;
-            --secondary-color: #3498db;
-            --accent-color: #e74c3c;
-            --light-color: #ecf0f1;
-            --dark-color: #2c3e50;
-            --success-color: #2ecc71;
-            --warning-color: #f39c12;
+            --primary-color: #00f7ff;
+            --secondary-color: #0066ff;
+            --accent-color: #ff00aa;
+            --light-color: #e0f7fa;
+            --dark-color: #0a192f;
+            --success-color: #00ff88;
+            --warning-color: #ffcc00;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Orbitron', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         body {
-            background-color: #f5f7fa;
-            color: var(--dark-color);
+            background-color: var(--dark-color);
+            color: var(--light-color);
             line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Sci-fi background elements */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(0, 247, 255, 0.1) 0%, transparent 20%),
+                radial-gradient(circle at 80% 70%, rgba(255, 0, 170, 0.1) 0%, transparent 20%),
+                linear-gradient(to bottom, transparent 95%, rgba(0, 102, 255, 0.3) 100%);
+            z-index: -1;
+        }
+
+        .grid-lines {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(to right, rgba(0, 247, 255, 0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(0, 247, 255, 0.05) 1px, transparent 1px);
+            background-size: 40px 40px;
+            z-index: -1;
+        }
+
+        .floating-shapes {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .shape {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.1;
+            filter: blur(40px);
+        }
+
+        .shape-1 {
+            width: 300px;
+            height: 300px;
+            background: var(--primary-color);
+            top: 20%;
+            left: 10%;
+            animation: float 15s infinite alternate ease-in-out;
+        }
+
+        .shape-2 {
+            width: 400px;
+            height: 400px;
+            background: var(--accent-color);
+            bottom: 10%;
+            right: 10%;
+            animation: float 18s infinite alternate-reverse ease-in-out;
+        }
+
+        .shape-3 {
+            width: 200px;
+            height: 200px;
+            background: var(--secondary-color);
+            top: 50%;
+            right: 20%;
+            animation: float 12s infinite alternate ease-in-out;
+        }
+
+        @keyframes float {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            50% { transform: translate(50px, 50px) rotate(180deg); }
+            100% { transform: translate(0, 0) rotate(360deg); }
+        }
+
+        /* Terminal-like cursor effect */
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        .cursor {
+            display: inline-block;
+            width: 10px;
+            height: 20px;
+            background: var(--primary-color);
+            margin-left: 5px;
+            vertical-align: middle;
+            animation: blink 1s infinite;
         }
 
         header {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            background: rgba(10, 25, 47, 0.8);
             color: white;
             text-align: center;
             padding: 2rem 0;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
             margin-bottom: 2rem;
+            position: relative;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 247, 255, 0.3);
         }
 
         h1 {
             font-size: 2.5rem;
             margin-bottom: 0.5rem;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 10px rgba(0, 247, 255, 0.3);
         }
 
         .subtitle {
             font-size: 1.2rem;
             opacity: 0.9;
+            margin-bottom: 0.5rem;
+        }
+
+        .personal-info {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 1rem;
+            background: rgba(10, 25, 47, 0.6);
+            border-radius: 10px;
+            border: 1px solid rgba(0, 247, 255, 0.2);
+            margin-bottom: 2rem;
+            backdrop-filter: blur(5px);
+        }
+
+        .personal-info p {
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .highlight {
+            color: var(--primary-color);
+            font-weight: bold;
         }
 
         .container {
@@ -61,23 +186,42 @@
         }
 
         .project-card {
-            background: white;
+            background: rgba(10, 25, 47, 0.7);
             border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             cursor: pointer;
+            border: 1px solid rgba(0, 247, 255, 0.1);
+            position: relative;
+        }
+
+        .project-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
         }
 
         .project-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+            border-color: rgba(0, 247, 255, 0.3);
         }
 
         .project-card img {
             width: 100%;
             height: 180px;
             object-fit: cover;
+            filter: grayscale(30%) contrast(110%);
+            transition: filter 0.3s ease;
+        }
+
+        .project-card:hover img {
+            filter: grayscale(0%) contrast(120%);
         }
 
         .project-card-content {
@@ -90,33 +234,41 @@
         }
 
         .project-card p {
-            color: #7f8c8d;
+            color: #b8c2d8;
             margin-bottom: 1rem;
             font-size: 0.9rem;
         }
 
         .project-card .btn {
             display: inline-block;
-            background: var(--secondary-color);
-            color: white;
+            background: linear-gradient(90deg, var(--secondary-color), var(--primary-color));
+            color: var(--dark-color);
             padding: 0.6rem 1.2rem;
             border-radius: 5px;
             text-decoration: none;
             font-weight: 500;
-            transition: background 0.3s ease;
+            transition: all 0.3s ease;
+            border: none;
+            font-family: 'Orbitron', sans-serif;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
         }
 
         .project-card .btn:hover {
-            background: #2980b9;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            box-shadow: 0 0 15px rgba(0, 247, 255, 0.5);
         }
 
         .project-display {
-            background: white;
+            background: rgba(10, 25, 47, 0.8);
             border-radius: 10px;
             padding: 2rem;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
             margin-bottom: 3rem;
             display: none;
+            border: 1px solid rgba(0, 247, 255, 0.2);
+            backdrop-filter: blur(5px);
         }
 
         .project-display.active {
@@ -132,17 +284,20 @@
         .back-btn {
             display: inline-block;
             margin-bottom: 1.5rem;
-            background: var(--primary-color);
-            color: white;
+            background: rgba(0, 102, 255, 0.2);
+            color: var(--primary-color);
             padding: 0.5rem 1rem;
             border-radius: 5px;
             text-decoration: none;
             font-weight: 500;
-            transition: background 0.3s ease;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 247, 255, 0.3);
+            font-family: 'Orbitron', sans-serif;
         }
 
         .back-btn:hover {
-            background: #1a252f;
+            background: rgba(0, 102, 255, 0.4);
+            box-shadow: 0 0 10px rgba(0, 247, 255, 0.3);
         }
 
         /* AI Waste Management Styles */
@@ -165,32 +320,40 @@
 
         .waste-form select, .waste-form input, .waste-form textarea {
             padding: 0.8rem;
-            border: 1px solid #ddd;
+            border: 1px solid rgba(0, 247, 255, 0.3);
             border-radius: 5px;
             font-size: 1rem;
+            background: rgba(10, 25, 47, 0.7);
+            color: var(--light-color);
+            font-family: 'Orbitron', sans-serif;
         }
 
         .waste-form button {
-            background: var(--success-color);
-            color: white;
+            background: linear-gradient(90deg, var(--success-color), #00cc77);
+            color: var(--dark-color);
             border: none;
             padding: 0.8rem;
             border-radius: 5px;
             cursor: pointer;
             font-size: 1rem;
-            transition: background 0.3s ease;
+            transition: all 0.3s ease;
+            font-family: 'Orbitron', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .waste-form button:hover {
-            background: #27ae60;
+            background: linear-gradient(90deg, #00cc77, var(--success-color));
+            box-shadow: 0 0 15px rgba(0, 255, 136, 0.5);
         }
 
         .waste-result {
-            background: #f8f9fa;
+            background: rgba(10, 25, 47, 0.7);
             padding: 1.5rem;
             border-radius: 5px;
             border-left: 5px solid var(--success-color);
             margin-top: 1rem;
+            color: #b8c2d8;
         }
 
         /* Blockchain Voting Styles */
@@ -206,18 +369,19 @@
         }
 
         .candidate-card {
-            background: white;
-            border: 1px solid #eee;
+            background: rgba(10, 25, 47, 0.7);
+            border: 1px solid rgba(0, 247, 255, 0.2);
             border-radius: 8px;
             padding: 1.5rem;
             margin-bottom: 1rem;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
         }
 
         .candidate-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            border-color: rgba(0, 247, 255, 0.4);
         }
 
         .candidate-card h4 {
@@ -226,42 +390,47 @@
         }
 
         .candidate-card p {
-            color: #7f8c8d;
+            color: #b8c2d8;
             margin-bottom: 1rem;
             font-size: 0.9rem;
         }
 
         .vote-btn {
-            background: var(--secondary-color);
+            background: linear-gradient(90deg, var(--secondary-color), #0055cc);
             color: white;
             border: none;
             padding: 0.6rem 1.2rem;
             border-radius: 5px;
             cursor: pointer;
             font-size: 0.9rem;
-            transition: background 0.3s ease;
+            transition: all 0.3s ease;
+            font-family: 'Orbitron', sans-serif;
         }
 
         .vote-btn:hover {
-            background: #2980b9;
+            background: linear-gradient(90deg, #0055cc, var(--secondary-color));
+            box-shadow: 0 0 10px rgba(0, 102, 255, 0.5);
         }
 
         .results-chart {
             height: 300px;
-            background: #f8f9fa;
+            background: rgba(10, 25, 47, 0.7);
             border-radius: 8px;
             padding: 1rem;
             margin-top: 1rem;
+            border: 1px solid rgba(0, 247, 255, 0.2);
         }
 
         .block-info {
-            background: #f8f9fa;
+            background: rgba(10, 25, 47, 0.7);
             padding: 1rem;
             border-radius: 8px;
             margin-top: 1rem;
             font-family: monospace;
             font-size: 0.8rem;
             overflow-x: auto;
+            color: #b8c2d8;
+            border: 1px solid rgba(0, 247, 255, 0.2);
         }
 
         /* Mental Health Chatbot Styles */
@@ -269,24 +438,28 @@
             display: flex;
             flex-direction: column;
             height: 500px;
-            border: 1px solid #ddd;
+            border: 1px solid rgba(0, 247, 255, 0.3);
             border-radius: 10px;
             overflow: hidden;
+            background: rgba(10, 25, 47, 0.7);
         }
 
         .chatbot-header {
-            background: var(--primary-color);
-            color: white;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            color: var(--dark-color);
             padding: 1rem;
             text-align: center;
             font-weight: 500;
+            font-family: 'Orbitron', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .chatbot-messages {
             flex: 1;
             padding: 1.5rem;
             overflow-y: auto;
-            background: #fafafa;
+            background: rgba(10, 25, 47, 0.5);
             display: flex;
             flex-direction: column;
             gap: 1rem;
@@ -302,22 +475,23 @@
 
         .bot-message {
             align-self: flex-start;
-            background: white;
-            border: 1px solid #eee;
+            background: rgba(10, 25, 47, 0.9);
+            border: 1px solid rgba(0, 247, 255, 0.3);
             border-bottom-left-radius: 5px;
+            color: #b8c2d8;
         }
 
         .user-message {
             align-self: flex-end;
-            background: var(--secondary-color);
-            color: white;
+            background: linear-gradient(90deg, var(--secondary-color), var(--primary-color));
+            color: var(--dark-color);
             border-bottom-right-radius: 5px;
         }
 
         .chatbot-input {
             display: flex;
-            border-top: 1px solid #ddd;
-            background: white;
+            border-top: 1px solid rgba(0, 247, 255, 0.3);
+            background: rgba(10, 25, 47, 0.9);
         }
 
         .chatbot-input input {
@@ -326,19 +500,23 @@
             border: none;
             outline: none;
             font-size: 1rem;
+            background: transparent;
+            color: var(--light-color);
+            font-family: 'Orbitron', sans-serif;
         }
 
         .chatbot-input button {
-            background: var(--secondary-color);
-            color: white;
+            background: linear-gradient(90deg, var(--secondary-color), var(--primary-color));
+            color: var(--dark-color);
             border: none;
             padding: 0 1.5rem;
             cursor: pointer;
-            transition: background 0.3s ease;
+            transition: all 0.3s ease;
+            font-family: 'Orbitron', sans-serif;
         }
 
         .chatbot-input button:hover {
-            background: #2980b9;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
         }
 
         /* Solar Optimizer Styles */
@@ -361,39 +539,48 @@
 
         .solar-form input, .solar-form select {
             padding: 0.8rem;
-            border: 1px solid #ddd;
+            border: 1px solid rgba(0, 247, 255, 0.3);
             border-radius: 5px;
             font-size: 1rem;
+            background: rgba(10, 25, 47, 0.7);
+            color: var(--light-color);
+            font-family: 'Orbitron', sans-serif;
         }
 
         .solar-form button {
-            background: var(--warning-color);
-            color: white;
+            background: linear-gradient(90deg, var(--warning-color), #e6b800);
+            color: var(--dark-color);
             border: none;
             padding: 0.8rem;
             border-radius: 5px;
             cursor: pointer;
             font-size: 1rem;
-            transition: background 0.3s ease;
+            transition: all 0.3s ease;
+            font-family: 'Orbitron', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .solar-form button:hover {
-            background: #e67e22;
+            background: linear-gradient(90deg, #e6b800, var(--warning-color));
+            box-shadow: 0 0 15px rgba(255, 204, 0, 0.5);
         }
 
         .solar-result {
-            background: #f8f9fa;
+            background: rgba(10, 25, 47, 0.7);
             padding: 1.5rem;
             border-radius: 5px;
             border-left: 5px solid var(--warning-color);
             margin-top: 1rem;
+            color: #b8c2d8;
         }
 
         .solar-chart {
             height: 300px;
-            background: white;
+            background: rgba(10, 25, 47, 0.7);
             border-radius: 8px;
             margin-top: 1rem;
+            border: 1px solid rgba(0, 247, 255, 0.2);
         }
 
         /* Smart Traffic Control Styles */
@@ -410,15 +597,16 @@
 
         .traffic-simulation {
             height: 400px;
-            background: #f0f0f0;
+            background: rgba(10, 25, 47, 0.7);
             border-radius: 8px;
             position: relative;
             overflow: hidden;
+            border: 1px solid rgba(0, 247, 255, 0.3);
         }
 
         .road {
             position: absolute;
-            background: #555;
+            background: #1a2a4a;
         }
 
         .horizontal-road {
@@ -439,34 +627,35 @@
             position: absolute;
             width: 30px;
             height: 80px;
-            background: #333;
+            background: #0a192f;
             border-radius: 5px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             padding: 5px;
+            border: 1px solid rgba(0, 247, 255, 0.3);
         }
 
         .light {
             width: 20px;
             height: 20px;
             border-radius: 50%;
-            background: #444;
+            background: #1a2a4a;
         }
 
         .light.active.red {
-            background: #e74c3c;
-            box-shadow: 0 0 10px #e74c3c;
+            background: #ff0033;
+            box-shadow: 0 0 10px #ff0033;
         }
 
         .light.active.yellow {
-            background: #f39c12;
-            box-shadow: 0 0 10px #f39c12;
+            background: #ffcc00;
+            box-shadow: 0 0 10px #ffcc00;
         }
 
         .light.active.green {
-            background: #2ecc71;
-            box-shadow: 0 0 10px #2ecc71;
+            background: #00ff88;
+            box-shadow: 0 0 10px #00ff88;
         }
 
         .car {
@@ -476,6 +665,7 @@
             background: var(--secondary-color);
             border-radius: 3px;
             transition: left 2s linear, top 2s linear;
+            box-shadow: 0 0 10px rgba(0, 102, 255, 0.5);
         }
 
         .traffic-controls {
@@ -486,24 +676,28 @@
 
         .traffic-controls button {
             padding: 0.8rem;
-            background: var(--accent-color);
+            background: linear-gradient(90deg, var(--accent-color), #cc0099);
             color: white;
             border: none;
             border-radius: 5px;
             cursor: pointer;
             font-size: 1rem;
-            transition: background 0.3s ease;
+            transition: all 0.3s ease;
+            font-family: 'Orbitron', sans-serif;
         }
 
         .traffic-controls button:hover {
-            background: #c0392b;
+            background: linear-gradient(90deg, #cc0099, var(--accent-color));
+            box-shadow: 0 0 15px rgba(255, 0, 170, 0.5);
         }
 
         .traffic-stats {
-            background: #f8f9fa;
+            background: rgba(10, 25, 47, 0.7);
             padding: 1rem;
             border-radius: 8px;
             margin-top: 1rem;
+            border: 1px solid rgba(0, 247, 255, 0.3);
+            color: #b8c2d8;
         }
 
         /* Responsive Styles */
@@ -515,20 +709,55 @@
             .waste-container, .voting-container, .solar-container, .traffic-container {
                 flex-direction: column;
             }
+            
+            .personal-info {
+                padding: 0.5rem;
+            }
+        }
+
+        /* Glowing text animation */
+        @keyframes glow {
+            0% { text-shadow: 0 0 5px var(--primary-color); }
+            50% { text-shadow: 0 0 20px var(--primary-color); }
+            100% { text-shadow: 0 0 5px var(--primary-color); }
+        }
+
+        .glow-text {
+            animation: glow 2s infinite;
         }
     </style>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div class="grid-lines"></div>
+    <div class="floating-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+    </div>
+
     <header>
         <div class="container">
-            <h1>SHAIK ZAMEER AHMED 23BRS1138</h1>
-            <p class="subtitle">Integrated Projects Portal</p>
+            <h1>SHAIK ZAMEER AHMED</h1>
+            <p class="subtitle">TECHNOLOGY PORTFOLIO</p>
+            <p class="subtitle glow-text">23BRS1138</p>
         </div>
     </header>
 
     <div class="container">
+        <div class="personal-info">
+            <p><span class="highlight">>> STATUS:</span> <span id="typing-text"></span><span class="cursor"></span></p>
+            <p><span class="highlight">>> EDUCATION:</span> 2nd Year B.Tech Student at VIT Chennai</p>
+            <p><span class="highlight">>> SPECIALIZATION:</span> Computer Science & Engineering</p>
+            <p><span class="highlight">>> INTERESTS:</span> AI/ML, Blockchain, IoT, Quantum Computing</p>
+            <p><span class="highlight">>> PHILOSOPHY:</span> "Innovate to Elevate"</p>
+        </div>
+
         <div id="projects-list">
+            <h2 style="margin-bottom: 1.5rem; color: var(--primary-color); border-bottom: 1px solid rgba(0, 247, 255, 0.3); padding-bottom: 0.5rem;">PROJECT SHOWCASE</h2>
+            
             <div class="projects-grid">
+                <!-- Project cards remain the same as before -->
                 <div class="project-card" onclick="showProject('ai-waste')">
                     <img src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="AI Waste Management">
                     <div class="project-card-content">
@@ -576,6 +805,7 @@
             </div>
         </div>
 
+        <!-- Project displays remain the same as before -->
         <!-- AI Waste Management Project -->
         <div id="ai-waste" class="project-display">
             <a href="#" class="back-btn" onclick="hideProjects()">&larr; Back to Projects</a>
@@ -612,7 +842,7 @@
                     </div>
                     
                     <h3 style="margin-top: 2rem;">Collection Route Optimization</h3>
-                    <div id="wasteMap" style="height: 200px; background: #f0f0f0; border-radius: 8px; margin-top: 1rem; display: flex; align-items: center; justify-content: center;">
+                    <div id="wasteMap" style="height: 200px; background: rgba(10, 25, 47, 0.5); border-radius: 8px; margin-top: 1rem; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(0, 247, 255, 0.3);">
                         <p>Route visualization will appear here</p>
                     </div>
                 </div>
@@ -813,6 +1043,50 @@
     </div>
 
     <script>
+        // Typing animation for personal info
+        const typingText = document.getElementById('typing-text');
+        const phrases = [
+            "Tech Enthusiast",
+            "AI Researcher",
+            "Blockchain Developer",
+            "IoT Specialist",
+            "VIT Chennai Student"
+        ];
+        let phraseIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        let isEnd = false;
+
+        function typeWriter() {
+            const currentPhrase = phrases[phraseIndex];
+            
+            if (isDeleting) {
+                typingText.textContent = currentPhrase.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typingText.textContent = currentPhrase.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            if (!isDeleting && charIndex === currentPhrase.length) {
+                isEnd = true;
+                setTimeout(() => {
+                    isDeleting = true;
+                }, 1500);
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                phraseIndex = (phraseIndex + 1) % phrases.length;
+            }
+
+            const speed = isDeleting ? 50 : isEnd ? 100 : 150;
+            setTimeout(typeWriter, speed);
+            isEnd = false;
+        }
+
+        // Start the typing animation
+        setTimeout(typeWriter, 1000);
+
+        // Rest of your existing JavaScript code remains the same
         // Global variables
         let currentProject = null;
         let simulationInterval;
@@ -885,7 +1159,7 @@
                 // Update map visualization
                 document.getElementById('wasteMap').innerHTML = `
                     <p>Optimal collection route for ${wasteType} waste covering ${quantity} kg</p>
-                    <div style="width: 80%; height: 80%; background: #ddd; border-radius: 5px; position: relative;">
+                    <div style="width: 80%; height: 80%; background: rgba(10, 25, 47, 0.9); border-radius: 5px; position: relative;">
                         <div style="position: absolute; width: 100%; height: 2px; background: ${getWasteColor(wasteType)}; top: 50%; left: 0; transform: translateY(-50%);"></div>
                         <div style="position: absolute; width: 10px; height: 10px; background: ${getWasteColor(wasteType)}; border-radius: 50%; top: 50%; left: 10%; transform: translate(-50%, -50%);"></div>
                         <div style="position: absolute; width: 10px; height: 10px; background: ${getWasteColor(wasteType)}; border-radius: 50%; top: 50%; left: 30%; transform: translate(-50%, -50%);"></div>
