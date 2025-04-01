@@ -124,6 +124,67 @@
             animation: blink 1s infinite;
         }
 
+        /* Navigation Bar */
+        nav {
+            position: sticky;
+            top: 0;
+            background: rgba(10, 25, 47, 0.9);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+            border-bottom: 1px solid rgba(0, 247, 255, 0.3);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .nav-links a {
+            color: var(--light-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
         header {
             background: rgba(10, 25, 47, 0.8);
             color: white;
@@ -298,6 +359,162 @@
         .back-btn:hover {
             background: rgba(0, 102, 255, 0.4);
             box-shadow: 0 0 10px rgba(0, 247, 255, 0.3);
+        }
+
+        /* Contact Section */
+        #contact {
+            background: rgba(10, 25, 47, 0.8);
+            padding: 3rem 0;
+            border-top: 1px solid rgba(0, 247, 255, 0.3);
+        }
+
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .contact-info, .contact-form {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .contact-info h2, .contact-form h2 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+
+        .contact-info p {
+            margin-bottom: 1.5rem;
+            color: #b8c2d8;
+        }
+
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(0, 102, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-color);
+            font-size: 1.2rem;
+        }
+
+        .contact-text h4 {
+            color: var(--light-color);
+            margin-bottom: 0.2rem;
+        }
+
+        .contact-text a {
+            color: #b8c2d8;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-text a:hover {
+            color: var(--primary-color);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: rgba(0, 102, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .social-link:hover {
+            background: var(--primary-color);
+            color: var(--dark-color);
+            transform: translateY(-3px);
+        }
+
+        .contact-form form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            padding: 0.8rem;
+            background: rgba(10, 25, 47, 0.7);
+            border: 1px solid rgba(0, 247, 255, 0.3);
+            border-radius: 5px;
+            color: var(--light-color);
+            font-family: 'Orbitron', sans-serif;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border-color: var(--primary-color);
+        }
+
+        .contact-form textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .contact-form button {
+            background: linear-gradient(90deg, var(--secondary-color), var(--primary-color));
+            color: var(--dark-color);
+            border: none;
+            padding: 0.8rem;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: 'Orbitron', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-form button:hover {
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            box-shadow: 0 0 15px rgba(0, 247, 255, 0.5);
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(10, 25, 47, 0.9);
+            text-align: center;
+            padding: 1.5rem;
+            border-top: 1px solid rgba(0, 247, 255, 0.3);
+        }
+
+        footer p {
+            color: #b8c2d8;
+            font-size: 0.9rem;
         }
 
         /* AI Waste Management Styles */
@@ -713,6 +930,17 @@
             .personal-info {
                 padding: 0.5rem;
             }
+
+            .nav-container {
+                flex-direction: column;
+                gap: 1rem;
+                padding: 1rem;
+            }
+
+            .nav-links {
+                width: 100%;
+                justify-content: space-around;
+            }
         }
 
         /* Glowing text animation */
@@ -725,8 +953,14 @@
         .glow-text {
             animation: glow 2s infinite;
         }
+
+        /* Section padding for navigation */
+        section {
+            padding: 2rem 0;
+        }
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <div class="grid-lines"></div>
@@ -736,311 +970,397 @@
         <div class="shape shape-3"></div>
     </div>
 
-    <header>
-        <div class="container">
-            <h1>SHAIK ZAMEER AHMED</h1>
-            <p class="subtitle">TECHNOLOGY PORTFOLIO</p>
-            <p class="subtitle glow-text">23BRS1138</p>
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="nav-logo">SHAIK ZAMEER</a>
+            <div class="nav-links">
+                <a href="#" onclick="scrollToSection('home')">Home</a>
+                <a href="#" onclick="scrollToSection('about')">My Info</a>
+                <a href="#" onclick="scrollToSection('projects')">Projects</a>
+                <a href="#" onclick="scrollToSection('contact')">Contact</a>
+            </div>
         </div>
-    </header>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home">
+        <header>
+            <div class="container">
+                <h1>SHAIK ZAMEER AHMED</h1>
+                <p class="subtitle">TECHNOLOGY PORTFOLIO</p>
+                <p class="subtitle glow-text">23BRS1138</p>
+            </div>
+        </header>
+    </section>
 
     <div class="container">
-        <div class="personal-info">
-            <p><span class="highlight">>> STATUS:</span> <span id="typing-text"></span><span class="cursor"></span></p>
-            <p><span class="highlight">>> EDUCATION:</span> 2nd Year B.Tech Student at VIT Chennai</p>
-            <p><span class="highlight">>> SPECIALIZATION:</span> Computer Science & Engineering</p>
-            <p><span class="highlight">>> INTERESTS:</span> AI/ML, Blockchain, IoT, Quantum Computing</p>
-            <p><span class="highlight">>> PHILOSOPHY:</span> "Innovate to Elevate"</p>
-        </div>
-
-        <div id="projects-list">
-            <h2 style="margin-bottom: 1.5rem; color: var(--primary-color); border-bottom: 1px solid rgba(0, 247, 255, 0.3); padding-bottom: 0.5rem;">PROJECT SHOWCASE</h2>
-            
-            <div class="projects-grid">
-                <!-- Project cards remain the same as before -->
-                <div class="project-card" onclick="showProject('ai-waste')">
-                    <img src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="AI Waste Management">
-                    <div class="project-card-content">
-                        <h3>AI Waste Management</h3>
-                        <p>An intelligent system that classifies waste and optimizes collection routes using machine learning.</p>
-                        <div class="btn">View Project</div>
-                    </div>
-                </div>
-
-                <div class="project-card" onclick="showProject('blockchain-voting')">
-                    <img src="https://images.unsplash.com/photo-1639762681057-408e52192e55?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Blockchain Voting System">
-                    <div class="project-card-content">
-                        <h3>Blockchain Voting System</h3>
-                        <p>A secure, transparent voting platform leveraging blockchain technology for tamper-proof elections.</p>
-                        <div class="btn">View Project</div>
-                    </div>
-                </div>
-
-                <div class="project-card" onclick="showProject('mental-health-chatbot')">
-                    <img src="https://images.unsplash.com/photo-1593642634524-b40b5baae6bb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Mental Health Chatbot">
-                    <div class="project-card-content">
-                        <h3>Mental Health Chatbot</h3>
-                        <p>An AI-powered chatbot providing mental health support and resources using natural language processing.</p>
-                        <div class="btn">View Project</div>
-                    </div>
-                </div>
-
-                <div class="project-card" onclick="showProject('solar-optimizer')">
-                    <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Solar Optimizer">
-                    <div class="project-card-content">
-                        <h3>Solar Optimizer</h3>
-                        <p>A system that maximizes solar energy production through panel orientation and efficiency analysis.</p>
-                        <div class="btn">View Project</div>
-                    </div>
-                </div>
-
-                <div class="project-card" onclick="showProject('smart-traffic')">
-                    <img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Smart Traffic Control">
-                    <div class="project-card-content">
-                        <h3>Smart Traffic Control</h3>
-                        <p>An IoT-based system that optimizes traffic flow using real-time data and adaptive signal timing.</p>
-                        <div class="btn">View Project</div>
-                    </div>
-                </div>
+        <!-- About Section -->
+        <section id="about">
+            <div class="personal-info">
+                <p><span class="highlight">>> STATUS:</span> <span id="typing-text"></span><span class="cursor"></span></p>
+                <p><span class="highlight">>> EDUCATION:</span> 2nd Year B.Tech Student at VIT Chennai</p>
+                <p><span class="highlight">>> SPECIALIZATION:</span> Computer Science & Engineering</p>
+                <p><span class="highlight">>> INTERESTS:</span> AI/ML, Blockchain, IoT, Quantum Computing</p>
+                <p><span class="highlight">>> PHILOSOPHY:</span> "Innovate to Elevate"</p>
             </div>
-        </div>
+        </section>
 
-        <!-- Project displays remain the same as before -->
-        <!-- AI Waste Management Project -->
-        <div id="ai-waste" class="project-display">
-            <a href="#" class="back-btn" onclick="hideProjects()">&larr; Back to Projects</a>
-            <h2>AI Waste Management System</h2>
-            <p>This system uses machine learning to classify waste and optimize collection routes for municipalities.</p>
-            
-            <div class="waste-container">
-                <div class="waste-input-section">
-                    <h3>Waste Classification</h3>
-                    <form class="waste-form" id="wasteForm">
-                        <select id="wasteType" required>
-                            <option value="">Select Waste Type</option>
-                            <option value="organic">Organic Waste</option>
-                            <option value="plastic">Plastic</option>
-                            <option value="paper">Paper</option>
-                            <option value="metal">Metal</option>
-                            <option value="glass">Glass</option>
-                            <option value="electronic">Electronic Waste</option>
-                            <option value="hazardous">Hazardous Waste</option>
-                        </select>
-                        
-                        <input type="number" id="wasteQuantity" placeholder="Quantity (kg)" min="1" required>
-                        
-                        <textarea id="wasteDescription" placeholder="Additional description (optional)" rows="3"></textarea>
-                        
-                        <button type="submit">Classify & Process</button>
-                    </form>
-                </div>
+        <!-- Projects Section -->
+        <section id="projects">
+            <div id="projects-list">
+                <h2 style="margin-bottom: 1.5rem; color: var(--primary-color); border-bottom: 1px solid rgba(0, 247, 255, 0.3); padding-bottom: 0.5rem;">PROJECT SHOWCASE</h2>
                 
-                <div class="waste-output-section">
-                    <h3>Processing Results</h3>
-                    <div class="waste-result" id="wasteResult">
-                        <p>Submit waste details to get classification and processing recommendations.</p>
+                <div class="projects-grid">
+                    <div class="project-card" onclick="showProject('ai-waste')">
+                        <img src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="AI Waste Management">
+                        <div class="project-card-content">
+                            <h3>AI Waste Management</h3>
+                            <p>An intelligent system that classifies waste and optimizes collection routes using machine learning.</p>
+                            <div class="btn">View Project</div>
+                        </div>
                     </div>
-                    
-                    <h3 style="margin-top: 2rem;">Collection Route Optimization</h3>
-                    <div id="wasteMap" style="height: 200px; background: rgba(10, 25, 47, 0.5); border-radius: 8px; margin-top: 1rem; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(0, 247, 255, 0.3);">
-                        <p>Route visualization will appear here</p>
-                    </div>
-                </div>
-            </div>
-        </div>
 
-        <!-- Blockchain Voting System Project -->
-        <div id="blockchain-voting" class="project-display">
-            <a href="#" class="back-btn" onclick="hideProjects()">&larr; Back to Projects</a>
-            <h2>Blockchain Voting System</h2>
-            <p>A secure, decentralized voting platform that ensures transparency and prevents tampering.</p>
-            
-            <div class="voting-container">
-                <div class="voting-candidates">
-                    <h3>Candidates</h3>
-                    <p>Select your preferred candidate and cast your vote:</p>
-                    
-                    <div class="candidate-card">
-                        <h4>Candidate A: John Smith</h4>
-                        <p>Party: Progressive Alliance<br>Platform: Economic reform, education investment</p>
-                        <button class="vote-btn" onclick="castVote('candidateA')">Vote for John</button>
+                    <div class="project-card" onclick="showProject('blockchain-voting')">
+                        <img src="https://images.unsplash.com/photo-1639762681057-408e52192e55?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Blockchain Voting System">
+                        <div class="project-card-content">
+                            <h3>Blockchain Voting System</h3>
+                            <p>A secure, transparent voting platform leveraging blockchain technology for tamper-proof elections.</p>
+                            <div class="btn">View Project</div>
+                        </div>
                     </div>
-                    
-                    <div class="candidate-card">
-                        <h4>Candidate B: Sarah Johnson</h4>
-                        <p>Party: Unity Party<br>Platform: Healthcare reform, environmental protection</p>
-                        <button class="vote-btn" onclick="castVote('candidateB')">Vote for Sarah</button>
-                    </div>
-                    
-                    <div class="candidate-card">
-                        <h4>Candidate C: Michael Brown</h4>
-                        <p>Party: Traditional Values<br>Platform: Tax reduction, national security</p>
-                        <button class="vote-btn" onclick="castVote('candidateC')">Vote for Michael</button>
-                    </div>
-                </div>
-                
-                <div class="voting-results">
-                    <h3>Live Results</h3>
-                    <p>Real-time voting results powered by blockchain technology:</p>
-                    
-                    <div class="results-chart" id="votingChart">
-                        <!-- Chart will be rendered here -->
-                    </div>
-                    
-                    <h3 style="margin-top: 2rem;">Blockchain Transaction</h3>
-                    <div class="block-info" id="blockchainInfo">
-                        <p>Your vote will be recorded as a transaction on the blockchain.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
 
-        <!-- Mental Health Chatbot Project -->
-        <div id="mental-health-chatbot" class="project-display">
-            <a href="#" class="back-btn" onclick="hideProjects()">&larr; Back to Projects</a>
-            <h2>Mental Health Chatbot</h2>
-            <p>An AI companion that provides mental health support and resources in a confidential environment.</p>
-            
-            <div class="chatbot-container">
-                <div class="chatbot-header">
-                    Mental Health Support Assistant
-                </div>
-                
-                <div class="chatbot-messages" id="chatbotMessages">
-                    <div class="message bot-message">
-                        Hello! I'm here to provide mental health support. How are you feeling today?
+                    <div class="project-card" onclick="showProject('mental-health-chatbot')">
+                        <img src="https://images.unsplash.com/photo-1593642634524-b40b5baae6bb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Mental Health Chatbot">
+                        <div class="project-card-content">
+                            <h3>Mental Health Chatbot</h3>
+                            <p>An AI-powered chatbot providing mental health support and resources using natural language processing.</p>
+                            <div class="btn">View Project</div>
+                        </div>
+                    </div>
+
+                    <div class="project-card" onclick="showProject('solar-optimizer')">
+                        <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Solar Optimizer">
+                        <div class="project-card-content">
+                            <h3>Solar Optimizer</h3>
+                            <p>A system that maximizes solar energy production through panel orientation and efficiency analysis.</p>
+                            <div class="btn">View Project</div>
+                        </div>
+                    </div>
+
+                    <div class="project-card" onclick="showProject('smart-traffic')">
+                        <img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Smart Traffic Control">
+                        <div class="project-card-content">
+                            <h3>Smart Traffic Control</h3>
+                            <p>An IoT-based system that optimizes traffic flow using real-time data and adaptive signal timing.</p>
+                            <div class="btn">View Project</div>
+                        </div>
                     </div>
                 </div>
-                
-                <div class="chatbot-input">
-                    <input type="text" id="userMessage" placeholder="Type your message here..." autocomplete="off">
-                    <button onclick="sendMessage()">Send</button>
-                </div>
             </div>
-            
-            <div style="margin-top: 2rem;">
-                <h3>Resources</h3>
-                <p>If you're in crisis or need immediate help, please contact:</p>
-                <ul style="margin-top: 0.5rem; margin-left: 1.5rem;">
-                    <li>National Suicide Prevention Lifeline: 1-800-273-TALK (8255)</li>
-                    <li>Crisis Text Line: Text HOME to 741741</li>
-                    <li>Your local mental health services</li>
-                </ul>
-            </div>
-        </div>
 
-        <!-- Solar Optimizer Project -->
-        <div id="solar-optimizer" class="project-display">
-            <a href="#" class="back-btn" onclick="hideProjects()">&larr; Back to Projects</a>
-            <h2>Solar Energy Optimization System</h2>
-            <p>Maximize your solar energy production with intelligent panel orientation and efficiency analysis.</p>
-            
-            <div class="solar-container">
-                <div class="solar-input">
-                    <h3>System Configuration</h3>
-                    <form class="solar-form" id="solarForm">
-                        <input type="text" id="location" placeholder="Location (City or Address)" required>
-                        
-                        <select id="roofType" required>
-                            <option value="">Select Roof Type</option>
-                            <option value="flat">Flat Roof</option>
-                            <option value="pitched">Pitched Roof</option>
-                            <option value="ground">Ground Mount</option>
-                        </select>
-                        
-                        <select id="roofDirection" required>
-                            <option value="">Select Roof Direction</option>
-                            <option value="north">North</option>
-                            <option value="south">South</option>
-                            <option value="east">East</option>
-                            <option value="west">West</option>
-                        </select>
-                        
-                        <input type="number" id="panelCount" placeholder="Number of Solar Panels" min="1" required>
-                        
-                        <input type="number" id="panelWattage" placeholder="Panel Wattage (W)" min="100" required>
-                        
-                        <button type="submit">Optimize System</button>
-                    </form>
-                </div>
+            <!-- Project displays -->
+            <!-- AI Waste Management Project -->
+            <div id="ai-waste" class="project-display">
+                <a href="#" class="back-btn" onclick="hideProjects()">&larr; Back to Projects</a>
+                <h2>AI Waste Management System</h2>
+                <p>This system uses machine learning to classify waste and optimize collection routes for municipalities.</p>
                 
-                <div class="solar-output">
-                    <h3>Optimization Results</h3>
-                    <div class="solar-result" id="solarResult">
-                        <p>Enter your system details to get optimization recommendations.</p>
+                <div class="waste-container">
+                    <div class="waste-input-section">
+                        <h3>Waste Classification</h3>
+                        <form class="waste-form" id="wasteForm">
+                            <select id="wasteType" required>
+                                <option value="">Select Waste Type</option>
+                                <option value="organic">Organic Waste</option>
+                                <option value="plastic">Plastic</option>
+                                <option value="paper">Paper</option>
+                                <option value="metal">Metal</option>
+                                <option value="glass">Glass</option>
+                                <option value="electronic">Electronic Waste</option>
+                                <option value="hazardous">Hazardous Waste</option>
+                            </select>
+                            
+                            <input type="number" id="wasteQuantity" placeholder="Quantity (kg)" min="1" required>
+                            
+                            <textarea id="wasteDescription" placeholder="Additional description (optional)" rows="3"></textarea>
+                            
+                            <button type="submit">Classify & Process</button>
+                        </form>
                     </div>
                     
-                    <h3 style="margin-top: 2rem;">Energy Production Forecast</h3>
-                    <div class="solar-chart" id="solarChart">
-                        <!-- Chart will be rendered here -->
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Smart Traffic Control Project -->
-        <div id="smart-traffic" class="project-display">
-            <a href="#" class="back-btn" onclick="hideProjects()">&larr; Back to Projects</a>
-            <h2>Smart Traffic Control System</h2>
-            <p>An IoT-based solution that optimizes traffic flow using real-time data and adaptive signal timing.</p>
-            
-            <div class="traffic-container">
-                <div class="traffic-map">
-                    <h3>Traffic Simulation</h3>
-                    <div class="traffic-simulation" id="trafficSimulation">
-                        <div class="road horizontal-road"></div>
-                        <div class="road vertical-road"></div>
-                        
-                        <div class="traffic-light" style="top: 20px; left: 50%; transform: translateX(-50%);">
-                            <div class="light red active" id="northLight"></div>
-                            <div class="light yellow" id="northYellow"></div>
-                            <div class="light green" id="northGreen"></div>
+                    <div class="waste-output-section">
+                        <h3>Processing Results</h3>
+                        <div class="waste-result" id="wasteResult">
+                            <p>Submit waste details to get classification and processing recommendations.</p>
                         </div>
                         
-                        <div class="traffic-light" style="bottom: 20px; left: 50%; transform: translateX(-50%);">
-                            <div class="light red" id="southLight"></div>
-                            <div class="light yellow" id="southYellow"></div>
-                            <div class="light green active" id="southGreen"></div>
+                        <h3 style="margin-top: 2rem;">Collection Route Optimization</h3>
+                        <div id="wasteMap" style="height: 200px; background: rgba(10, 25, 47, 0.5); border-radius: 8px; margin-top: 1rem; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(0, 247, 255, 0.3);">
+                            <p>Route visualization will appear here</p>
                         </div>
-                        
-                        <div class="traffic-light" style="top: 50%; left: 20px; transform: translateY(-50%); flex-direction: row;">
-                            <div class="light red" id="westLight"></div>
-                            <div class="light yellow" id="westYellow"></div>
-                            <div class="light green active" id="westGreen"></div>
-                        </div>
-                        
-                        <div class="traffic-light" style="top: 50%; right: 20px; transform: translateY(-50%); flex-direction: row;">
-                            <div class="light red active" id="eastLight"></div>
-                            <div class="light yellow" id="eastYellow"></div>
-                            <div class="light green" id="eastGreen"></div>
-                        </div>
-                        
-                        <div class="car" id="car1" style="top: 30%; left: -50px;"></div>
-                        <div class="car" id="car2" style="top: 70%; left: -50px;"></div>
-                        <div class="car" id="car3" style="left: 30%; top: -50px;"></div>
-                        <div class="car" id="car4" style="left: 70%; top: -50px;"></div>
-                    </div>
-                </div>
-                
-                <div class="traffic-controls">
-                    <h3>Traffic Control</h3>
-                    <p>Adjust traffic light timing based on real-time conditions:</p>
-                    
-                    <button onclick="startSimulation()">Start Simulation</button>
-                    <button onclick="stopSimulation()">Stop Simulation</button>
-                    <button onclick="emergencyMode()">Emergency Vehicle Mode</button>
-                    <button onclick="pedestrianMode()">Pedestrian Crossing</button>
-                    
-                    <div class="traffic-stats">
-                        <h4>Traffic Statistics</h4>
-                        <p>Vehicles passed: <span id="vehicleCount">0</span></p>
-                        <p>Average wait time: <span id="waitTime">0</span> seconds</p>
-                        <p>Current congestion level: <span id="congestionLevel">Low</span></p>
                     </div>
                 </div>
             </div>
-        </div>
+
+            <!-- Blockchain Voting System Project -->
+            <div id="blockchain-voting" class="project-display">
+                <a href="#" class="back-btn" onclick="hideProjects()">&larr; Back to Projects</a>
+                <h2>Blockchain Voting System</h2>
+                <p>A secure, decentralized voting platform that ensures transparency and prevents tampering.</p>
+                
+                <div class="voting-container">
+                    <div class="voting-candidates">
+                        <h3>Candidates</h3>
+                        <p>Select your preferred candidate and cast your vote:</p>
+                        
+                        <div class="candidate-card">
+                            <h4>Candidate A: John Smith</h4>
+                            <p>Party: Progressive Alliance<br>Platform: Economic reform, education investment</p>
+                            <button class="vote-btn" onclick="castVote('candidateA')">Vote for John</button>
+                        </div>
+                        
+                        <div class="candidate-card">
+                            <h4>Candidate B: Sarah Johnson</h4>
+                            <p>Party: Unity Party<br>Platform: Healthcare reform, environmental protection</p>
+                            <button class="vote-btn" onclick="castVote('candidateB')">Vote for Sarah</button>
+                        </div>
+                        
+                        <div class="candidate-card">
+                            <h4>Candidate C: Michael Brown</h4>
+                            <p>Party: Traditional Values<br>Platform: Tax reduction, national security</p>
+                            <button class="vote-btn" onclick="castVote('candidateC')">Vote for Michael</button>
+                        </div>
+                    </div>
+                    
+                    <div class="voting-results">
+                        <h3>Live Results</h3>
+                        <p>Real-time voting results powered by blockchain technology:</p>
+                        
+                        <div class="results-chart" id="votingChart">
+                            <!-- Chart will be rendered here -->
+                        </div>
+                        
+                        <h3 style="margin-top: 2rem;">Blockchain Transaction</h3>
+                        <div class="block-info" id="blockchainInfo">
+                            <p>Your vote will be recorded as a transaction on the blockchain.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mental Health Chatbot Project -->
+            <div id="mental-health-chatbot" class="project-display">
+                <a href="#" class="back-btn" onclick="hideProjects()">&larr; Back to Projects</a>
+                <h2>Mental Health Chatbot</h2>
+                <p>An AI companion that provides mental health support and resources in a confidential environment.</p>
+                
+                <div class="chatbot-container">
+                    <div class="chatbot-header">
+                        Mental Health Support Assistant
+                    </div>
+                    
+                    <div class="chatbot-messages" id="chatbotMessages">
+                        <div class="message bot-message">
+                            Hello! I'm here to provide mental health support. How are you feeling today?
+                        </div>
+                    </div>
+                    
+                    <div class="chatbot-input">
+                        <input type="text" id="userMessage" placeholder="Type your message here..." autocomplete="off">
+                        <button onclick="sendMessage()">Send</button>
+                    </div>
+                </div>
+                
+                <div style="margin-top: 2rem;">
+                    <h3>Resources</h3>
+                    <p>If you're in crisis or need immediate help, please contact:</p>
+                    <ul style="margin-top: 0.5rem; margin-left: 1.5rem;">
+                        <li>National Suicide Prevention Lifeline: 1-800-273-TALK (8255)</li>
+                        <li>Crisis Text Line: Text HOME to 741741</li>
+                        <li>Your local mental health services</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Solar Optimizer Project -->
+            <div id="solar-optimizer" class="project-display">
+                <a href="#" class="back-btn" onclick="hideProjects()">&larr; Back to Projects</a>
+                <h2>Solar Energy Optimization System</h2>
+                <p>Maximize your solar energy production with intelligent panel orientation and efficiency analysis.</p>
+                
+                <div class="solar-container">
+                    <div class="solar-input">
+                        <h3>System Configuration</h3>
+                        <form class="solar-form" id="solarForm">
+                            <input type="text" id="location" placeholder="Location (City or Address)" required>
+                            
+                            <select id="roofType" required>
+                                <option value="">Select Roof Type</option>
+                                <option value="flat">Flat Roof</option>
+                                <option value="pitched">Pitched Roof</option>
+                                <option value="ground">Ground Mount</option>
+                            </select>
+                            
+                            <select id="roofDirection" required>
+                                <option value="">Select Roof Direction</option>
+                                <option value="north">North</option>
+                                <option value="south">South</option>
+                                <option value="east">East</option>
+                                <option value="west">West</option>
+                            </select>
+                            
+                            <input type="number" id="panelCount" placeholder="Number of Solar Panels" min="1" required>
+                            
+                            <input type="number" id="panelWattage" placeholder="Panel Wattage (W)" min="100" required>
+                            
+                            <button type="submit">Optimize System</button>
+                        </form>
+                    </div>
+                    
+                    <div class="solar-output">
+                        <h3>Optimization Results</h3>
+                        <div class="solar-result" id="solarResult">
+                            <p>Enter your system details to get optimization recommendations.</p>
+                        </div>
+                        
+                        <h3 style="margin-top: 2rem;">Energy Production Forecast</h3>
+                        <div class="solar-chart" id="solarChart">
+                            <!-- Chart will be rendered here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Smart Traffic Control Project -->
+            <div id="smart-traffic" class="project-display">
+                <a href="#" class="back-btn" onclick="hideProjects()">&larr; Back to Projects</a>
+                <h2>Smart Traffic Control System</h2>
+                <p>An IoT-based solution that optimizes traffic flow using real-time data and adaptive signal timing.</p>
+                
+                <div class="traffic-container">
+                    <div class="traffic-map">
+                        <h3>Traffic Simulation</h3>
+                        <div class="traffic-simulation" id="trafficSimulation">
+                            <div class="road horizontal-road"></div>
+                            <div class="road vertical-road"></div>
+                            
+                            <div class="traffic-light" style="top: 20px; left: 50%; transform: translateX(-50%);">
+                                <div class="light red active" id="northLight"></div>
+                                <div class="light yellow" id="northYellow"></div>
+                                <div class="light green" id="northGreen"></div>
+                            </div>
+                            
+                            <div class="traffic-light" style="bottom: 20px; left: 50%; transform: translateX(-50%);">
+                                <div class="light red" id="southLight"></div>
+                                <div class="light yellow" id="southYellow"></div>
+                                <div class="light green active" id="southGreen"></div>
+                            </div>
+                            
+                            <div class="traffic-light" style="top: 50%; left: 20px; transform: translateY(-50%); flex-direction: row;">
+                                <div class="light red" id="westLight"></div>
+                                <div class="light yellow" id="westYellow"></div>
+                                <div class="light green active" id="westGreen"></div>
+                            </div>
+                            
+                            <div class="traffic-light" style="top: 50%; right: 20px; transform: translateY(-50%); flex-direction: row;">
+                                <div class="light red active" id="eastLight"></div>
+                                <div class="light yellow" id="eastYellow"></div>
+                                <div class="light green" id="eastGreen"></div>
+                            </div>
+                            
+                            <div class="car" id="car1" style="top: 30%; left: -50px;"></div>
+                            <div class="car" id="car2" style="top: 70%; left: -50px;"></div>
+                            <div class="car" id="car3" style="left: 30%; top: -50px;"></div>
+                            <div class="car" id="car4" style="left: 70%; top: -50px;"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="traffic-controls">
+                        <h3>Traffic Control</h3>
+                        <p>Adjust traffic light timing based on real-time conditions:</p>
+                        
+                        <button onclick="startSimulation()">Start Simulation</button>
+                        <button onclick="stopSimulation()">Stop Simulation</button>
+                        <button onclick="emergencyMode()">Emergency Vehicle Mode</button>
+                        <button onclick="pedestrianMode()">Pedestrian Crossing</button>
+                        
+                        <div class="traffic-stats">
+                            <h4>Traffic Statistics</h4>
+                            <p>Vehicles passed: <span id="vehicleCount">0</span></p>
+                            <p>Average wait time: <span id="waitTime">0</span> seconds</p>
+                            <p>Current congestion level: <span id="congestionLevel">Low</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="contact-container">
+            <div class="contact-info">
+                <h2>Get In Touch</h2>
+                <p>Feel free to reach out to me for collaborations, job opportunities, or just to say hello!</p>
+                
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Email</h4>
+                            <a href="mailto:zameer.ahmed@example.com">zameer.ahmed@example.com</a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Phone</h4>
+                            <a href="tel:+919876543210">+91 98765 43210</a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Location</h4>
+                            <p>VIT Chennai, Tamil Nadu, India</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="social-links">
+                    <a href="#" class="social-link" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="social-link" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="#" class="social-link" target="_blank"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link" target="_blank"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            
+            <div class="contact-form">
+                <h2>Send Me a Message</h2>
+                <form id="contactForm">
+                    <input type="text" id="name" placeholder="Your Name" required>
+                    <input type="email" id="email" placeholder="Your Email" required>
+                    <input type="text" id="subject" placeholder="Subject">
+                    <textarea id="message" placeholder="Your Message" required></textarea>
+                    <button type="submit">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2023 Shaik Zameer Ahmed. All Rights Reserved.</p>
+    </footer>
 
     <script>
         // Typing animation for personal info
@@ -1086,7 +1406,17 @@
         // Start the typing animation
         setTimeout(typeWriter, 1000);
 
-        // Rest of your existing JavaScript code remains the same
+        // Smooth scrolling for navigation
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            if (section) {
+                window.scrollTo({
+                    top: section.offsetTop - 80, // Adjust for navbar height
+                    behavior: 'smooth'
+                });
+            }
+        }
+
         // Global variables
         let currentProject = null;
         let simulationInterval;
@@ -1110,6 +1440,12 @@
             } else if (projectId === 'solar-optimizer') {
                 renderSolarChart();
             }
+            
+            // Scroll to the top of the project display
+            window.scrollTo({
+                top: document.getElementById(projectId).offsetTop - 80,
+                behavior: 'smooth'
+            });
         }
 
         // Hide projects and show main list
@@ -1125,7 +1461,28 @@
                 clearInterval(simulationInterval);
                 simulationInterval = null;
             }
+            
+            // Scroll back to projects section
+            scrollToSection('projects');
         }
+
+        // Contact form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+            
+            // Here you would typically send the form data to a server
+            // For this example, we'll just show a success message
+            alert(`Thank you, ${name}! Your message has been sent successfully. I'll get back to you soon at ${email}.`);
+            
+            // Reset the form
+            this.reset();
+        });
 
         // AI Waste Management Functions
         document.getElementById('wasteForm').addEventListener('submit', function(e) {
